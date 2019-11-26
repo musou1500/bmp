@@ -1,6 +1,6 @@
 # bmp
 
-bmp reader
+bmp reader can read uncompressed(BI_RGB) 8, 24, 32bit bmp.
 
 ![](./screenshot.png)
 
