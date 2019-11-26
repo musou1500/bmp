@@ -43,18 +43,11 @@ static int get_palette_size(bi_info_t info) {
 }
 
 void bi_free_img(bi_img_t img) {
-  switch (img.info.bit_count) {
-  case 8:
-    free(img.data8);
+  if (img.info.bit_count == 8) {
     free(img.palettes);
-    break;
-  case 24:
-    free(img.data24);
-    break;
-  case 32:
-    free(img.data32);
-    break;
   }
+
+  free(img.data8);
 }
 
 bi_palette_t bi_palette_at(bi_img_t img, int x, int y) {
