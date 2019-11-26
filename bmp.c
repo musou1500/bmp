@@ -83,19 +83,7 @@ bi_img_t bi_read_img(FILE *fp) {
     }
   }
 
-  void *data = calloc(img.info.bit_count / 8, img.info.width * img.info.height);
-  switch (img.info.bit_count) {
-  case 8:
-    img.data8 = data;
-    break;
-  case 24:
-    img.data24 = data;
-    break;
-  case 32:
-    img.data32 = data;
-    break;
-  }
-
+  img.data8 = calloc(img.info.bit_count / 8, img.info.width * img.info.height);
   fseek(fp, img.header.offset, SEEK_SET);
   int pad_size = img.info.width % 4;
   for (int i = 0; i < img.info.height; i++) {
