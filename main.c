@@ -61,23 +61,8 @@ int main(int argc, const char *argv[]) {
   for (int i = img.info.height; i >= 0; i--) {
     for (int j = 0; j < img.info.width; j++) {
       int data_idx = img.info.width * i + j;
-      switch (img.info.bit_count) {
-      case 8: {
-        bi_palette_t palette = img.palettes[img.data8[data_idx]];
-        SDL_SetRenderDrawColor(renderer, palette.r, palette.g, palette.b, 255);
-        break;
-      }
-      case 24: {
-        bi_data24_t data = img.data24[data_idx];
-        SDL_SetRenderDrawColor(renderer, data.r, data.g, data.b, 255);
-        break;
-      }
-      case 32: {
-        bi_data32_t data = img.data32[data_idx];
-        SDL_SetRenderDrawColor(renderer, data.r, data.g, data.b, 255);
-        break;
-      }
-      }
+      bi_palette_t palette = bi_palette_at(img, j, i);
+      SDL_SetRenderDrawColor(renderer, palette.r, palette.g, palette.b, 255);
       SDL_RenderDrawPoint(renderer, j, img.info.height - i);
     }
   }

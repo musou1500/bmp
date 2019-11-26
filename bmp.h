@@ -67,6 +67,7 @@ typedef struct {
   };
 } bi_img_t;
 
+bi_palette_t bi_palette_at(bi_img_t img, int x, int y);
 void bi_free_img(bi_img_t img);
 bi_img_t bi_read_img(FILE *fp);
 

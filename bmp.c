@@ -57,6 +57,26 @@ void bi_free_img(bi_img_t img) {
   }
 }
 
+bi_palette_t bi_palette_at(bi_img_t img, int x, int y) {
+  int data_idx = img.info.width * y + x;
+  switch (img.info.bit_count) {
+  case 8: {
+    return img.palettes[img.data8[data_idx]];
+  }
+  case 24: {
+    bi_data24_t data24 = img.data24[data_idx];
+    return (bi_palette_t){data24.b, data24.g, data24.r, 0};
+  }
+  case 32: {
+    return img.data32[data_idx];
+  }
+  default: {
+    // TODO: fixit
+    return (bi_palette_t){};
+  }
+  }
+}
+
 bi_img_t bi_read_img(FILE *fp) {
   bi_img_t img;
   img.header = read_header(fp);
