@@ -1,0 +1,4 @@
+bmp
+*.o
+compile_commands.json
+.clangd
