@@ -10,6 +10,7 @@ void usage() { printf("usage: bmp [filename]"); }
 int main(int argc, const char *argv[]) {
   if (argc < 2) {
     usage();
+    return EXIT_FAILURE;
   }
 
   const char *filename = argv[1];
@@ -75,8 +76,7 @@ int main(int argc, const char *argv[]) {
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
   SDL_Quit();
-  return EXIT_SUCCESS;
 
   bi_free_img(img);
-  return 0;
+  return EXIT_SUCCESS;
 }
