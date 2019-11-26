@@ -47,11 +47,24 @@ typedef struct {
   char reserved;
 } bi_palette_t;
 
+typedef unsigned char bi_data8_t;
+typedef struct {
+  unsigned char b;
+  unsigned char g;
+  unsigned char r;
+} bi_data24_t;
+typedef bi_palette_t bi_data32_t;
+
 typedef struct {
   bi_header_t header;
   bi_info_t info;
   bi_palette_t *palettes;
-  unsigned char *data;
+
+  union {
+    unsigned char *data8;
+    bi_data24_t *data24;
+    bi_data32_t *data32;
+  };
 } bi_img_t;
 
 void bi_free_img(bi_img_t img);
