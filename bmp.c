@@ -96,6 +96,7 @@ bi_img_t bi_read_img(FILE *fp) {
     break;
   }
 
+  fseek(fp, img.header.offset, SEEK_SET);
   int pad_size = img.info.width % 4;
   for (int i = 0; i < img.info.height; i++) {
     int idx = i * img.info.width;
