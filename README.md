@@ -2,6 +2,8 @@
 
 bmp reader
 
+![](./screenshot.png)
+
 ## requirements
 * sdl2
 
