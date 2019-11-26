@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define WINDOW_WIDTH 600
 
 void usage() { printf("usage: bmp [filename]"); }
 
