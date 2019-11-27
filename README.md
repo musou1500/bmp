@@ -4,8 +4,6 @@ bmp reader can read uncompressed(BI_RGB) 8, 24, 32bit bmp.
 
 ## build
 
-this library requires sdl2.
-
 ```
 $ make
 ```
@@ -13,6 +11,7 @@ $ make
 ## usage
 
 see `example/main.c` for more detail.
+(example requires sdl2)
 
 ```c
 FILE *fp = fopen(filename, "r");
