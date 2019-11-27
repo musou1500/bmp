@@ -1,9 +1,14 @@
 CFLAGS = -std=c11
 
-bmp: main.o bmp.o
-	$(CC) -o bmp $^ -lSDL2
+all: libbmp.a example
+
+libbmp.a: bmp.o
+	ar r $@ $^
 
 .PHONY: clean
 
+example: libbmp.a
+	make -C ./example
+
 clean:
-	rm *.o bmp
+	rm *.o *.a

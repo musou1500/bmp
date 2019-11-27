@@ -1,4 +1,6 @@
 bmp
 *.o
+*.a
 compile_commands.json
 .clangd
+
