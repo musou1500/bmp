@@ -27,5 +27,7 @@ for (int i = img.info.height; i >= 0; i--) {
   }
 }
 
+bi_free_img(img);
+
 ```
 
